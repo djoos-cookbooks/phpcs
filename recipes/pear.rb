@@ -29,5 +29,5 @@ php_pear "PHP_CodeSniffer" do
 	if node[:phpcs][:version] != "latest"
 		version "#{node[:phpcs][:version]}"
 	end
-	action :upgrade
+	action :upgrade if node[:phpcs][:version] == "latest"
 end
