@@ -13,6 +13,7 @@ Requirements
 
 * php
 * composer
+* git
 
 ## Platforms:
 
@@ -27,9 +28,15 @@ Requirements
 Attributes
 ==========
 
+## default.rb:
 * `node['phpcs']['install_method']` - Installation method, "pear" or "composer", defaults to "pear"
 * `node['phpcs']['version']` - The phpcs version that will be installed, defaults to "latest"
+
+## composer.rb:
 * `node['phpcs']['prefix']` - The composer.json bin-dir, defaults to "/usr/bin" (composer install method only)
+
+## coding-standard.rb:
+* `node['phpcs']['coding_standards']` - Hash of optional additional coding standard(s), eg. "Symfony2" => { "repository" => "git://github.com/opensky/Symfony2-coding-standard.git", "reference" => "master" }
 
 Usage
 =====

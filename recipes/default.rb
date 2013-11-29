@@ -11,3 +11,5 @@ case node[:phpcs][:install_method]
 	when "composer"
 		include_recipe "phpcs::composer"
 end
+
+include_recipe "phpcs::coding-standard"

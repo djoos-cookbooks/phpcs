@@ -7,6 +7,3 @@
 
 default[:phpcs][:install_method] = "pear"
 default[:phpcs][:version] = "latest"
-
-#composer install only
-default[:phpcs][:prefix] = "/usr/bin"
