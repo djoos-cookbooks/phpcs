@@ -2,7 +2,7 @@
 # Cookbook Name:: phpcs
 # Attributes:: coding-standard
 #
-# Copyright 2013, Escape Studios
+# Copyright 2013-2014, Escape Studios
 #
 
-default[:phpcs][:coding_standards] = {}
+default['phpcs']['coding_standards'] = {}

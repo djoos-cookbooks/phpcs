@@ -2,7 +2,7 @@
 # Cookbook Name:: phpcs
 # Recipe:: pear
 #
-# Copyright 2013, Escape Studios
+# Copyright 2013-2014, Escape Studios
 #
 
 include_recipe "php"
@@ -26,8 +26,8 @@ end
 #upgrade phpcs
 php_pear "PHP_CodeSniffer" do
 	channel pearhub_chan.channel_name
-	if node[:phpcs][:version] != "latest"
-		version "#{node[:phpcs][:version]}"
+	if node['phpcs']['version'] != "latest"
+		version "#{node['phpcs']['version']}"
 	end
-	action :upgrade if node[:phpcs][:version] == "latest"
+	action :upgrade if node['phpcs']['version'] == "latest"
 end
