@@ -24,10 +24,12 @@ php_pear_channel "pear.phpunit.de" do
 end
 
 #upgrade phpcs
-php_pear "PHP_CodeSniffer" do
+package = "PHP_CodeSniffer"
+
+php_pear package do
 	channel pearhub_chan.channel_name
 	if node['phpcs']['version'] != "latest"
 		version "#{node['phpcs']['version']}"
 	end
-	action :upgrade if node['phpcs']['version'] == "latest"
+	action if node['phpcs']['version'] == "latest"? :upgrade : :install
 end
