@@ -23,7 +23,7 @@ php_pear_channel "pear.phpunit.de" do
 	action :discover
 end
 
-#upgrade phpcs
+#install/upgrade phpcs
 package = "PHP_CodeSniffer"
 
 php_pear package do
@@ -31,5 +31,6 @@ php_pear package do
 	if node['phpcs']['version'] != "latest"
 		version "#{node['phpcs']['version']}"
 	end
-	action if node['phpcs']['version'] == "latest"? :upgrade : :install
+	#upgrade when package is installed and latest version is required
+	action ( !(`pear list | grep #{package}`.empty?) and node['phpcs']['version'] == "latest" ) ? :upgrade : :install
 end
