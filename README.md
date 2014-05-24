@@ -35,7 +35,7 @@ Attributes
 ## composer.rb:
 * `node['phpcs']['prefix']` - The composer.json bin-dir, defaults to "/usr/bin" (composer install method only)
 
-## coding-standard.rb:
+## coding_standard.rb:
 * `node['phpcs']['coding_standards']` - Hash of optional additional coding standard(s), eg. "Symfony2" => { "repository" => "git://github.com/opensky/Symfony2-coding-standard.git", "reference" => "master" }
 
 Usage
@@ -55,7 +55,7 @@ References
 License and Authors
 ===================
 
-Author: David Joos <david@escapestudios.com>
+Author: David Joos <david.joos@escapestudios.com>
 Author: Escape Studios Development <dev@escapestudios.com>
 Copyright: 2013-2014, Escape Studios
 

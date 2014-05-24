@@ -6,8 +6,8 @@
 #
 
 case node['phpcs']['install_method']
-	when "pear"
-		include_recipe "phpcs::pear"
-	when "composer"
-		include_recipe "phpcs::composer"
+when 'pear'
+  include_recipe 'phpcs::pear'
+when 'composer'
+  include_recipe 'phpcs::composer'
 end

@@ -21,7 +21,7 @@ action :install do
     repository new_resource.repository
     reference new_resource.reference
     action :sync
-    only_if { Dir.exists?(standards_dir) }
+    only_if { Dir.exist?(standards_dir) }
   end
 
   new_resource.updated_by_last_action(true)

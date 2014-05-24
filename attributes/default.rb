@@ -5,5 +5,5 @@
 # Copyright 2013-2014, Escape Studios
 #
 
-default['phpcs']['install_method'] = "pear"
-default['phpcs']['version'] = "latest"
+default['phpcs']['install_method'] = 'composer'
+default['phpcs']['version'] = 'latest'
