@@ -17,6 +17,7 @@ end
 package = 'PHP_CodeSniffer'
 
 # upgrade when package is installed and latest version is required
+# TODO: This throws an error on first run, because pear is not installed yet
 if !(`pear list | grep #{package}`.empty?) && node['phpcs']['version'] == 'latest'
   action = :upgrade
 else
