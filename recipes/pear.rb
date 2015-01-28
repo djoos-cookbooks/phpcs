@@ -18,11 +18,6 @@ php_pear 'PEAR' do
   action :upgrade
 end
 
-# PHPUnit PEAR channel
-php_pear_channel 'pear.phpunit.de' do
-  action :discover
-end
-
 # install/upgrade phpcs
 package = 'PHP_CodeSniffer'
 
