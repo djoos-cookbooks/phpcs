@@ -7,14 +7,9 @@
 
 include_recipe 'php'
 
-# PHP Extension and Application Repository PEAR channel
-pearhub_chan = php_pear_channel 'pear.php.net' do
-  action :update
-end
-
 # upgrade PEAR
 php_pear 'PEAR' do
-  channel pearhub_chan.channel_name
+  channel 'pear.php.net'
   action :upgrade
 end
 
@@ -29,7 +24,7 @@ else
 end
 
 php_pear package do
-  channel pearhub_chan.channel_name
+  channel 'pear.php.net'
   version node['phpcs']['version'] if node['phpcs']['version'] != 'latest'
   action action
 end
