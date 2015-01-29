@@ -11,6 +11,7 @@ default_action :install
 attribute :name, :name_attribute => true, :kind_of => String, :default => nil
 attribute :repository, :kind_of => String, :default => nil
 attribute :reference, :kind_of => String, :default => nil
+attribute :subfolder, :kind_of => String, :default => nil
 
 def initialize(*args)
   super
