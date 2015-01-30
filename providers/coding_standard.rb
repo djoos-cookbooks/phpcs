@@ -12,7 +12,7 @@ def whyrun_supported?
 end
 
 action :install do
-  Chef::Log.debug 'install coding standard'
+  Chef::Log.info 'Installing coding standard #{new_resource.name}'
 
   php_dir = `pear config-get php_dir`.strip
   standards_dir = "#{php_dir}/PHP/CodeSniffer/Standards"
