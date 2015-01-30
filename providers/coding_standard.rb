@@ -22,11 +22,27 @@ action :install do
     standards_dir = "#{Chef::Config[:file_cache_path]}/phpcs/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards"
   end
 
-  git "#{standards_dir}/#{new_resource.name}" do
+  if new_resource.subfolder.nil?
+    git_clone_folder = "#{standards_dir}/#{new_resource.name}"
+  else
+    git_clone_folder = "#{Chef::Config[:file_cache_path]}/#{new_resource.name}"
+  end
+
+  git git_clone_folder do
     repository new_resource.repository
     reference new_resource.reference
     action :sync
     only_if { Dir.exist?(standards_dir) }
+  end
+
+
+  if !new_resource.subfolder.nil?
+    bash "copy-drupal-standard" do
+      user "root"
+      code <<-EOH
+        cp -Rf #{Chef::Config[:file_cache_path]}/#{new_resource.name}/#{new_resource.subfolder} #{standards_dir}
+      EOH
+    end
   end
 
   new_resource.updated_by_last_action(true)
