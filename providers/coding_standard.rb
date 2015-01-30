@@ -14,8 +14,13 @@ end
 action :install do
   Chef::Log.info 'Installing coding standard #{new_resource.name}'
 
-  php_dir = `pear config-get php_dir`.strip
-  standards_dir = "#{php_dir}/PHP/CodeSniffer/Standards"
+  case node['phpcs']['install_method']
+  when 'pear'
+    php_dir = `pear config-get php_dir`.strip
+    standards_dir = "#{php_dir}/PHP/CodeSniffer/Standards"
+  when 'composer'
+    standards_dir = "#{Chef::Config[:file_cache_path]}/phpcs/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards"
+  end
 
   git "#{standards_dir}/#{new_resource.name}" do
     repository new_resource.repository
