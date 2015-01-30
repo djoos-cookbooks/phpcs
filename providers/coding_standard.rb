@@ -19,7 +19,7 @@ action :install do
     php_dir = `pear config-get php_dir`.strip
     standards_dir = "#{php_dir}/PHP/CodeSniffer/Standards"
   when 'composer'
-    standards_dir = "#{Chef::Config[:file_cache_path]}/phpcs/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards"
+    standards_dir = "#{node['phpcs']['install_dir']}/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards"
   end
 
   if new_resource.subfolder.nil?
