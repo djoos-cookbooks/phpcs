@@ -37,7 +37,7 @@ action :install do
 
 
   if !new_resource.subfolder.nil?
-    bash "copy-drupal-standard" do
+    bash "phpcs: copy a standard from subfolder" do
       user "root"
       code <<-EOH
         cp -Rf #{Chef::Config[:file_cache_path]}/#{new_resource.name}/#{new_resource.subfolder} #{standards_dir}
