@@ -37,6 +37,13 @@ action :install do
 
 
   if !new_resource.subfolder.nil?
+    bash "phpcs: remove old standards folder" do
+      user "root"
+      code <<-EOH
+        rm -rf #{standards_dir}/#{new_resource.name}
+      EOH
+      only_if "test -d #{standards_dir}/#{new_resource.name}"
+    end
     bash "phpcs: copy a standard from subfolder" do
       user "root"
       code <<-EOH
