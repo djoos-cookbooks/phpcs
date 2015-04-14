@@ -7,9 +7,9 @@
 
 include_recipe 'composer'
 
-phpcs_dir = "#{Chef::Config[:file_cache_path]}/phpcs"
+install_dir = node['phpcs']['install_dir']
 
-directory phpcs_dir do
+directory install_dir do
   owner 'root'
   group 'root'
   mode 0755

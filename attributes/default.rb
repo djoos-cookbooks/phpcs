@@ -7,3 +7,4 @@
 
 default['phpcs']['install_method'] = 'composer'
 default['phpcs']['version'] = 'latest'
+default['phpcs']['install_dir'] = '/usr/local/phpcs'
