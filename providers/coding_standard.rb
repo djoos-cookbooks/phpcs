@@ -22,34 +22,11 @@ action :install do
     standards_dir = "#{node['phpcs']['install_dir']}/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards"
   end
 
-  if new_resource.subfolder.nil?
-    git_clone_folder = "#{standards_dir}/#{new_resource.name}"
-  else
-    git_clone_folder = "#{Chef::Config[:file_cache_path]}/#{new_resource.name}"
-  end
-
-  git git_clone_folder do
+  git "#{standards_dir}/#{new_resource.name}" do
     repository new_resource.repository
     reference new_resource.reference
     action :sync
     only_if { Dir.exist?(standards_dir) }
-  end
-
-
-  if !new_resource.subfolder.nil?
-    bash "phpcs: remove old standards folder" do
-      user "root"
-      code <<-EOH
-        rm -rf #{standards_dir}/#{new_resource.name}
-      EOH
-      only_if "test -d #{standards_dir}/#{new_resource.name}"
-    end
-    bash "phpcs: copy a standard from subfolder" do
-      user "root"
-      code <<-EOH
-        cp -Rf #{Chef::Config[:file_cache_path]}/#{new_resource.name}/#{new_resource.subfolder} #{standards_dir}
-      EOH
-    end
   end
 
   new_resource.updated_by_last_action(true)
