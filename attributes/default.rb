@@ -2,7 +2,7 @@
 # Cookbook Name:: phpcs
 # Attributes:: default
 #
-# Copyright 2013-2014, Escape Studios
+# Copyright 2013-2015, Escape Studios
 #
 
 default['phpcs']['install_method'] = 'composer'
