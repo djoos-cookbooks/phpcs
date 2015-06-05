@@ -4,7 +4,7 @@ maintainer_email 'dev@escapestudios.com'
 license 'MIT'
 description 'Installs/Configures phpcs'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '1.1.0'
+version '1.1.1'
 
 %w( debian ubuntu redhat centos fedora scientific amazon ).each do |os|
   supports os

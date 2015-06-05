@@ -24,7 +24,7 @@ else
 end
 
 # composer.json
-template "#{phpcs_dir}/composer.json" do
+template "#{install_dir}/composer.json" do
   source 'composer.json.erb'
   owner 'root'
   group 'root'
@@ -38,7 +38,7 @@ end
 # composer update
 execute 'phpcs-composer' do
   user 'root'
-  cwd phpcs_dir
+  cwd install_dir
   command 'composer update'
   action :run
 end
