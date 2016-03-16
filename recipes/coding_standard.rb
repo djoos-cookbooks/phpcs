@@ -12,6 +12,7 @@ unless coding_standards.nil?
     phpcs_coding_standard key do
       repository coding_standards[key]['repository']
       reference coding_standards[key]['reference']
+      subdirectory coding_standards[key]['subdirectory'] unless coding_standards[key]['subdirectory'].nil?
       action :install
     end
   end

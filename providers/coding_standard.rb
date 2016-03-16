@@ -22,11 +22,21 @@ action :install do
     standards_dir = "#{node['phpcs']['install_dir']}/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards"
   end
 
-  git "#{standards_dir}/#{new_resource.name}" do
+  target = "#{standards_dir}/#{new_resource.name}"
+
+  git target do
     repository new_resource.repository
     reference new_resource.reference
     action :sync
     only_if { Dir.exist?(standards_dir) }
+    notifies :run, 'execute[filter-subdirectory]', :immediately
+  end
+
+  execute 'filter-subdirectory' do
+    cwd target
+    command "git filter-branch --subdirectory-filter #{new_resource.subdirectory}"
+    not_if { new_resource.subdirectory.nil? }
+    action :nothing
   end
 
   new_resource.updated_by_last_action(true)
