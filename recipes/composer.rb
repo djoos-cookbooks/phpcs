@@ -2,7 +2,7 @@
 # Cookbook Name:: phpcs
 # Recipe:: composer
 #
-# Copyright 2013-2015, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 include_recipe 'composer'
@@ -17,11 +17,11 @@ directory install_dir do
 end
 
 # figure out what version to install
-if node['phpcs']['version'] != 'latest'
-  version = node['phpcs']['version']
-else
-  version = '*.*.*'
-end
+version = if node['phpcs']['version'] != 'latest'
+            node['phpcs']['version']
+          else
+            '*.*.*'
+          end
 
 # composer.json
 template "#{install_dir}/composer.json" do

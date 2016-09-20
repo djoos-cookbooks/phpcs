@@ -2,7 +2,7 @@
 # Cookbook Name:: phpcs
 # Recipe:: default
 #
-# Copyright 2013-2015, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 case node['phpcs']['install_method']

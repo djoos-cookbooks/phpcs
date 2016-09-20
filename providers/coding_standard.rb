@@ -2,7 +2,7 @@
 # Cookbook Name:: phpcs
 # Provider:: coding_standard
 #
-# Copyright 2013-2015, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 use_inline_resources if defined?(use_inline_resources)

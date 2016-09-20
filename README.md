@@ -1,23 +1,23 @@
-[![Build Status](https://secure.travis-ci.org/escapestudios-cookbooks/phpcs.png)](http://travis-ci.org/escapestudios-cookbooks/phpcs)
+[![Build Status](https://travis-ci.org/djoos-cookbooks/phpcs.png)](http://travis-ci.org/djoos-cookbooks/phpcs)
 
-Description
-===========
+# phpcs cookbook
+
+## Description
 
 This cookbook provides an easy way to install phpcs, PHP Code Sniffer.
 
 More information?
 https://github.com/squizlabs/PHP_CodeSniffer
 
-Requirements
-============
+## Requirements
 
-## Cookbooks:
+### Cookbooks:
 
 * php
 * composer
 * git
 
-## Platforms:
+### Platforms:
 
 * Ubuntu
 * Debian
@@ -27,35 +27,33 @@ Requirements
 * Scientific
 * Amazon
 
-Attributes
-==========
+## Attributes
 
-## default.rb:
+### default.rb:
 * `node['phpcs']['install_method']` - Installation method, "pear" or "composer", defaults to "pear"
 * `node['phpcs']['version']` - The phpcs version that will be installed, defaults to "latest"
 
-## composer.rb:
+### composer.rb:
 * `node['phpcs']['prefix']` - The composer.json bin-dir, defaults to "/usr/bin" (composer install method only)
 
-## coding_standard.rb:
+### coding_standard.rb:
 * `node['phpcs']['coding_standards']` - Hash of optional additional coding standard(s), eg. "Symfony2" => { "repository" => "git://github.com/opensky/Symfony2-coding-standard.git", "reference" => "master" }
 
-Usage
-=====
+## Usage
 
 1) include `recipe[phpcs]` in a run list
-2)
-	change the attributes
-	--- OR ---
-	override the attribute on a higher level (http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
+2) change the attributes
+--- OR ---
+[override the attribute on a higher level](http://wiki.opscode.com/display/chef/Attributes#Attributes-AttributesPrecedence)
 
-References
-==========
+## References
 
 * [phpcs home page] (https://github.com/squizlabs/PHP_CodeSniffer)
 
-License and Authors
-===================
+## License and Authors
+
+Author: David Joos <development@davidjoos.com>
+Copyright: 2016, David Joos
 
 Author: David Joos <david.joos@escapestudios.com>
 Author: Escape Studios Development <dev@escapestudios.com>
