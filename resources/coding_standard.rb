@@ -2,7 +2,7 @@
 # Cookbook Name:: phpcs
 # Resource:: coding_standard
 #
-# Copyright 2013-2015, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 actions :install

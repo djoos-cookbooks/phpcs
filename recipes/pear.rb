@@ -2,7 +2,7 @@
 # Cookbook Name:: phpcs
 # Recipe:: pear
 #
-# Copyright 2013-2015, Escape Studios
+# Copyright (c) 2016, David Joos
 #
 
 include_recipe 'php'
@@ -17,11 +17,11 @@ end
 package = 'PHP_CodeSniffer'
 
 # upgrade when package is installed and latest version is required
-if !(`pear list | grep #{package}`.empty?) && node['phpcs']['version'] == 'latest'
-  action = :upgrade
-else
-  action = :install
-end
+action = if !`pear list | grep #{package}`.empty? && node['phpcs']['version'] == 'latest'
+           :upgrade
+         else
+           :install
+         end
 
 php_pear package do
   channel 'pear.php.net'

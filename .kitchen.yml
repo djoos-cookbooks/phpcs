@@ -1,15 +1,17 @@
 ---
-driver_plugin: vagrant
-driver_config:
-  require_chef_omnibus: true
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
 
 platforms:
   - name: ubuntu-14.04
-    driver_config:
-      box: opscode-ubuntu-14.04
+    run_list:
+      - recipe[apt]
 
 suites:
-  - name: default
+  - name: default_composer
     run_list:
       - recipe[phpcs::default]
     attributes:
@@ -24,6 +26,6 @@ suites:
         install_method: composer
         coding_standards:
           Symfony2:
-            repository: git://github.com/escapestudios/Symfony2-coding-standard.git
+            repository: git://github.com/djoos/Symfony2-coding-standard.git
             reference: master
             subdirectory: Symfony2
