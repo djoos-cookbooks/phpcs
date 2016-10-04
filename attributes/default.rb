@@ -7,4 +7,4 @@
 
 default['phpcs']['install_method'] = 'composer'
 default['phpcs']['version'] = 'latest'
-default['phpcs']['install_dir'] = default['composer']['global_install']['install_dir']
+default['phpcs']['install_dir'] = '/usr/bin'
