@@ -19,5 +19,5 @@ version = if node['phpcs']['version'] != 'latest'
 composer_install_global 'squizlabs/php_codesniffer' do
   install_dir install_dir
   version version
-  bin_dir node['phpcs']['prefix']
+  bin_dir node['phpcs']['bin_dir']
 end
