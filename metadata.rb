@@ -14,7 +14,7 @@ source_url 'https://github.com/djoos-cookbooks/phpcs' if respond_to?(:source_url
 issues_url 'https://github.com/djoos-cookbooks/phpcs/issues' if respond_to?(:issues_url)
 
 depends 'php'
-depends 'composer'
+depends 'composer', '>= 2.5.1'
 depends 'git'
 
 recipe 'phpcs', 'Installs phpcs.'
