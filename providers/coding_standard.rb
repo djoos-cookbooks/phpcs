@@ -12,7 +12,7 @@ def whyrun_supported?
 end
 
 action :install do
-  Chef::Log.info 'Installing coding standard #{new_resource.name}'
+  Chef::Log.info "Installing coding standard #{new_resource.name}"
 
   case node['phpcs']['install_method']
   when 'pear'
