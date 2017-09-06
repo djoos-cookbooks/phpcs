@@ -14,21 +14,23 @@ end
 action :install do
   Chef::Log.info "Installing coding standard #{new_resource.name}"
 
-  case node['phpcs']['install_method']
-  when 'pear'
-    php_dir = `pear config-get php_dir`.strip
-    standards_dir = "#{php_dir}/PHP/CodeSniffer/Standards"
-  when 'composer'
-    standards_dir = "#{node['phpcs']['install_dir']}/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards"
+  if new_resource.standards_dir.nil?
+    case node['phpcs']['install_method']
+    when 'pear'
+      php_dir = `pear config-get php_dir`.strip
+      new_resource.standards_dir = "#{php_dir}/PHP/CodeSniffer/Standards"
+    when 'composer'
+      new_resource.standards_dir = "#{node['phpcs']['install_dir']}/vendor/squizlabs/php_codesniffer/src/Standards"
+    end
   end
 
-  target = "#{standards_dir}/#{new_resource.name}"
+  target = "#{new_resource.standards_dir}/#{new_resource.name}"
 
   git target do
     repository new_resource.repository
     reference new_resource.reference
     action :sync
-    only_if { Dir.exist?(standards_dir) }
+    only_if { Dir.exist?(new_resource.standards_dir) }
     notifies :run, 'execute[filter-subdirectory]', :immediately
   end
 
