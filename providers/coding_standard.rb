@@ -12,7 +12,7 @@ def whyrun_supported?
 end
 
 action :install do
-  Chef::Log.info 'Installing coding standard #{new_resource.name}'
+  Chef::Log.info "Installing coding standard #{new_resource.name}"
 
   case node['phpcs']['install_method']
   when 'pear'
@@ -34,7 +34,7 @@ action :install do
 
   execute 'filter-subdirectory' do
     cwd target
-    command "git filter-branch --subdirectory-filter -f #{new_resource.subdirectory}"
+    command "git filter-branch -f --subdirectory-filter #{new_resource.subdirectory}"
     not_if { new_resource.subdirectory.nil? }
     action :nothing
   end
