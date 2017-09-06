@@ -8,7 +8,7 @@
 actions :install
 default_action :install
 
-attribute :name, :name_attribute => true, :kind_of => String, :default => nil
+attribute :name, :name_attribute => true, :kind_of => String
 attribute :repository, :kind_of => String, :default => nil
 attribute :reference, :kind_of => String, :default => nil
 attribute :subdirectory, :kind_of => String, :default => nil
