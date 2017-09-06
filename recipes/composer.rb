@@ -12,7 +12,7 @@ install_dir = node['phpcs']['install_dir']
 directory install_dir do
   owner 'root'
   group 'root'
-  mode 0755
+  mode '0755'
   action :create
 end
 
@@ -28,7 +28,7 @@ template "#{install_dir}/composer.json" do
   source 'composer.json.erb'
   owner 'root'
   group 'root'
-  mode 0600
+  mode '0600'
   variables(
     :version => version,
     :bindir => node['phpcs']['prefix']
