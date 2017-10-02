@@ -3,10 +3,18 @@ driver_plugin: vagrant
 
 provisioner:
   name: chef_zero
-  require_chef_omnibus: 12.19.36
 
 platforms:
-  - name: ubuntu-16.04
+  - name: ubuntu-16.04-chef-12
+    driver:
+      box: bento/ubuntu-16.04
+    provisioner:
+      require_chef_omnubus: 12
+  - name: ubuntu-16.04-chef-13
+    driver:
+      box: bento/ubuntu-16.04
+    provisioner:
+      require_chef_omnubus: 13
 
 suites:
   - name: default_composer
