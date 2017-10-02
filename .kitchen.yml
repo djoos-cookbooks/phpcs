@@ -22,7 +22,7 @@ platforms:
       require_chef_omnibus: 12
   - name: centos-7.3-chef-13
     driver:
-      box: centos-7.3-16.04
+      box: bento/centos-7.3
     provisioner:
       require_chef_omnibus: 13
 
