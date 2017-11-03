@@ -9,13 +9,6 @@ include_recipe 'composer'
 
 install_dir = node['phpcs']['install_dir']
 
-directory install_dir do
-  owner 'root'
-  group 'root'
-  mode '0755'
-  action :create
-end
-
 # figure out what version to install
 version = if node['phpcs']['version'] != 'latest'
             node['phpcs']['version']
@@ -23,22 +16,8 @@ version = if node['phpcs']['version'] != 'latest'
             '*.*.*'
           end
 
-# composer.json
-template "#{install_dir}/composer.json" do
-  source 'composer.json.erb'
-  owner 'root'
-  group 'root'
-  mode '0600'
-  variables(
-    :version => version,
-    :bindir => node['phpcs']['prefix']
-  )
-end
-
-# composer update
-execute 'phpcs-composer' do
-  user 'root'
-  cwd install_dir
-  command 'composer update'
-  action :run
+composer_install_global 'squizlabs/php_codesniffer' do
+  install_dir install_dir
+  version version
+  bin_dir node['phpcs']['bin_dir']
 end
