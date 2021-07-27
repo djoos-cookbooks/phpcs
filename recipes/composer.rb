@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: phpcs
+# Cookbook:: phpcs
 # Recipe:: composer
 #
-# Copyright (c) 2016, David Joos
+# Copyright:: (c) 2016, David Joos
 #
 
 include_recipe 'composer'
@@ -30,8 +30,8 @@ template "#{install_dir}/composer.json" do
   group 'root'
   mode '0600'
   variables(
-    :version => version,
-    :bindir => node['phpcs']['prefix']
+    version: version,
+    bindir: node['phpcs']['prefix']
   )
 end
 

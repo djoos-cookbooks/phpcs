@@ -1,15 +1,9 @@
 #
-# Cookbook Name:: phpcs
+# Cookbook:: phpcs
 # Provider:: coding_standard
 #
-# Copyright (c) 2016, David Joos
+# Copyright:: (c) 2016, David Joos
 #
-
-use_inline_resources if defined?(use_inline_resources)
-
-def whyrun_supported?
-  true
-end
 
 action :install do
   Chef::Log.info "Installing coding standard #{new_resource.name}"

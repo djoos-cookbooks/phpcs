@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: phpcs
+# Cookbook:: phpcs
 # Attributes:: default
 #
-# Copyright (c) 2016, David Joos
+# Copyright:: (c) 2016, David Joos
 #
 
 default['phpcs']['install_method'] = 'composer'

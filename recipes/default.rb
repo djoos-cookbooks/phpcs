@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: phpcs
+# Cookbook:: phpcs
 # Recipe:: default
 #
-# Copyright (c) 2016, David Joos
+# Copyright:: (c) 2016, David Joos
 #
 
 case node['phpcs']['install_method']

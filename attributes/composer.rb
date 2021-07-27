@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: phpcs
+# Cookbook:: phpcs
 # Attributes:: composer
 #
-# Copyright (c) 2016, David Joos
+# Copyright:: (c) 2016, David Joos
 #
 
 default['phpcs']['prefix'] = '/usr/bin'
